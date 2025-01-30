@@ -3,7 +3,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ArraySetTest {
+public class ArraySetTests {
+
+
+
+    @Test
+    public void testAdd() {
+        ArraySet as = new ArraySet(10); //Arrange
+        int oldSize = as.getSize();
+        as.add(5);                      //Act
+        assertEquals(as.getSize(), oldSize + 1);//Ass:ert
+    }
 
     @Test
     public void TestContainsWithEmptyArraySet() {
@@ -11,10 +21,5 @@ public class ArraySetTest {
         boolean b = as.contains(5);
         assertFalse(b);
     }
-
-    @Test
-    public void TestAdd(){
-
-    }
-
 }
+
