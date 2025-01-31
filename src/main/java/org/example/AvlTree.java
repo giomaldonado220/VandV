@@ -5,8 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import gov.nasa.jpf.symbc.DebugBounded;
-import gov.nasa.jpf.vm.Verify;
+//I dont think these packages are real
+//import gov.nasa.jpf.symbc;
+//import gov.nasa.jpf.vm.Verify;
 
 public class AvlTree {
 
@@ -535,7 +536,10 @@ public class AvlTree {
     public static void main(String[] args) {
 
         AvlTree X = new AvlTree(10);
-        X = (AvlTree) DebugBounded.makeSymbolicRef("X", X);
+        //had to comment these so the code could work
+//      X = (AvlTree) DebugBounded.makeSymbolicRef("X", X);
+        //the one below was already commented out in the original code so I assume he
+        //meant to do the same to the one above
 //		X = (AvlTree) DebugBounded.makeSymbolicRefBounded("X", X);
 
         if (X != null) {
