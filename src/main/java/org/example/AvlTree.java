@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-//I dont think these packages are real
+//GIO: I don't think these packages are real (couldn't find them online anywhere)
 //import gov.nasa.jpf.symbc;
 //import gov.nasa.jpf.vm.Verify;
 
@@ -536,7 +536,7 @@ public class AvlTree {
     public static void main(String[] args) {
 
         AvlTree X = new AvlTree(10);
-        //had to comment these so the code could work
+        //GIO: had to comment these so the code could work
 //      X = (AvlTree) DebugBounded.makeSymbolicRef("X", X);
         //the one below was already commented out in the original code so I assume he
         //meant to do the same to the one above
