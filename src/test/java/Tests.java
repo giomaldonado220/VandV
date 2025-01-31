@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ArraySetTests {
 
-
-
     @Test
     public void testAdd() {
         ArraySet as = new ArraySet(10); //Arrange
@@ -21,5 +19,7 @@ public class ArraySetTests {
         boolean b = as.contains(5);
         assertFalse(b);
     }
+
+
 }
 
