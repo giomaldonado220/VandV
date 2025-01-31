@@ -4,8 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AvlTreeTest {
+// Do at least 2 tests each
 
+class AvlTreeTest {
     @Test
     void insert() {
     }
