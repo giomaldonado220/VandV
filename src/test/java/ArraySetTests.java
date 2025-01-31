@@ -15,7 +15,7 @@ public class ArraySetTests {
 
     @Test
     public void TestContainsWithEmptyArraySet() {
-        ArraySet as = new ArraySetTest(10);
+        ArraySet as = new ArraySet(10);
         boolean b = as.contains(5);
         assertFalse(b);
     }
