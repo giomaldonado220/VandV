@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 //GIO: I don't think these packages are real (couldn't find them online anywhere)
+//They are only needed for one single line of code (which i think he meant to comment out)
 //import gov.nasa.jpf.symbc;
 //import gov.nasa.jpf.vm.Verify;
 
