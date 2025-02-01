@@ -81,6 +81,40 @@ public class AvlTreeTests {
 
     }
 
+    /**
+    FR
+    Insert duplicate elements 10 and 10 and ensures that duplicate insertions do not
+    modify the tree meaning left and right should remain null.
+    */
+    @Test
+    void insertDuplicateValues(){
+        AvlTree tree = new AvlTree();
+        //duplicate insert of value 10
+        tree = tree.insert(tree,10);
+        tree = tree.insert(tree,10);
+        assertNotNull(tree, "the tree is not null after insert");
+        assertEquals(10, tree.element, "root should be 10");
+        assertNull(tree.left, "left should be null");
+        assertNull(tree.right, "right should be null");
+
+    }
+    /**
+    FR
+    We insert values in descending order and ensure the AVL tree maintains balance
+    by doing left rotation.
+     */
+    @Test
+    void insertDesendingUnbalancedValues(){
+        AvlTree tree = new AvlTree();
+        tree = tree.insert(tree,5);
+        tree = tree.insert(tree,3);
+        tree = tree.insert(tree,1);
+        assertEquals(3, tree.element, "root should be rotated t0 3");
+        assertEquals(1, tree.left.element, "left child should be 1");
+        assertEquals(5, tree.right.element, "right child should be 5");
+        assertEquals(2, tree.height, "height should be correct");
+
+    }
 
 }
 
