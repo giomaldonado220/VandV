@@ -3,7 +3,7 @@ package org.example;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.jupiter.api.Test;
-
+import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 // Do at least 2 tests each
@@ -77,6 +77,8 @@ public class AvlTreeTests {
         }
         assertTrue(avlTree.repOK_Concrete(avlTree));
         assertTrue(avlTree.repOK_ConcretePost(avlTree));
+
+
     }
 
 
