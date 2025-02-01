@@ -451,7 +451,7 @@ public class AvlTree {
 		}
 		 */
 
-        return true;
+        //return true;
     }
 
     // Return smallest element.
