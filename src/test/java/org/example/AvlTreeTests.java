@@ -1,14 +1,22 @@
 package org.example;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.jupiter.api.Test;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 // Do at least 2 tests each
 
 public class AvlTreeTests {
+    private AvlTree tree;
+
+    @BeforeEach
+    public void setUp() {
+        tree = new AvlTree();
+    }
 
 
     int howManyTimesInserting = 40;
@@ -114,7 +122,71 @@ public class AvlTreeTests {
 
     }
 
+
+    @Test
+    void testRandomInsertions(){
+        Random random = new Random(30);
+        int numInsertions = 30;
+
+        for(int i = 0; i < numInsertions; i++){
+            int randomInt = random.nextInt();
+            tree.insert(tree, randomInt);
+        }
+        assertTrue(tree.repOK_ConcretePost(tree));
+        assertTrue(tree.repOK_Concrete(tree));
+    }
+
+    @Test
+    void testAVLBalanceAfterInsertions() {
+        tree = tree.insert(tree, 50);
+        tree = tree.insert(tree, 40);
+        tree = tree.insert(tree, 45);
+        tree = tree.insert(tree, 60);
+        tree = tree.insert(tree, 70);
+        tree = tree.insert(tree, 30);
+        tree = tree.insert(tree, 35);
+        tree = tree.insert(tree, 80);
+        tree = tree.insert(tree, 5);
+
+        assertTrue(tree.repOK_Structure(tree));
+
+        int numNodes = 9;
+        int height = (int)(Math.log(numNodes)/ Math.log(2));
+
+
+        // Checks AVL balance property
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
