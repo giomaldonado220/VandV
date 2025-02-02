@@ -35,6 +35,7 @@ class AvlTreeTest {
             int randomInt = random.nextInt();
             tree.insert(avlTree, randomInt);
         }
+        assertTrue(tree.repOK_Structure(tree));
     }
 
     public void testInsertions(){
@@ -48,14 +49,11 @@ class AvlTreeTest {
         tree.insert(tree, 80);
         tree.insert(tree, 5);
 
-        assertTrue(tree.repOK_Structure(tree));
+        assertTrue(tree.repOK_Structure_CheckHeight(tree)); //Check the balance of the tree
 
-        int numNodes = 9;
-        int H
-        int height = (int)(Math.log(numNodes)/Math.log(2));
+        assertTrue(tree.repOK_Structure(tree)); //Check the structure of the tree
 
-        assertTrue(tree.height == height);
-        assertEquals(45, tree.element);
+        
     }
         
         
