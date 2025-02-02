@@ -71,7 +71,7 @@ public class AvlTreeTests {
     }
 
     /**
-     * Keeps on adding the same value over and over to the tree and checks if its
+     * Keeps on adding the same value over and over to the tree and checks if it's
      * still follows all its rules after
      * @param valueToInsert which value to keep on inserting in the tree
      */
@@ -110,7 +110,7 @@ public class AvlTreeTests {
     by doing left rotation.
      */
     @Test
-    void insertDesendingUnbalancedValues(){
+    void insertDescendingUnbalancedValues(){
         AvlTree tree = new AvlTree();
         tree = tree.insert(tree,5);
         tree = tree.insert(tree,3);
@@ -148,13 +148,9 @@ public class AvlTreeTests {
         tree = tree.insert(tree, 80);
         tree = tree.insert(tree, 5);
 
-        assertTrue(tree.repOK_Structure(tree));
-
-        int numNodes = 9;
-        int height = (int)(Math.log(numNodes)/ Math.log(2));
-
-
-        // Checks AVL balance property
+        assertTrue(tree.repOK_Structure_CheckHeight(tree)); //Check the balance of the tree
+                                                            //Expected Height:3
+        assertTrue(tree.repOK_Structure(tree));// Checks AVL balance property
     }
 
 }
