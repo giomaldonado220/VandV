@@ -150,10 +150,6 @@ public class AvlTreeTests {
                                                             //Expected balance: 3
 
         assertTrue(tree.repOK_Structure(tree));
-
-
-
-
         // Checks AVL balance property
     }
 
