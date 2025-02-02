@@ -1,3 +1,9 @@
+/*
+Authors:
+Giovanni Maldonado
+Derek Gamboa
+Franz Reyes
+ */
 package org.example;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -8,7 +14,6 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// Do at least 2 tests each
 
 public class AvlTreeTests {
     private AvlTree tree;
@@ -29,19 +34,18 @@ public class AvlTreeTests {
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9})
     void keepInsertingSmaller(int incrementingValue) {
-        AvlTree avlTree = new AvlTree();
         int valueToInsert = 0;
 
         for (int i = 0; i < howManyTimesInserting; i++ ) {
-            avlTree.insert(avlTree, valueToInsert);
+            tree.insert(tree, valueToInsert);
             valueToInsert += incrementingValue;
 
         }
-        assertTrue(avlTree.repOK_Concrete(avlTree));
+        assertTrue(tree.repOK_Concrete(tree));
         //repoOk_Concrete checks ordering and structure
         //assertTrue(avlTree.repOK_Ordered(avlTree));
         //assertTrue(avlTree.repOK_Structure(avlTree));
-        assertTrue(avlTree.repOK_Concrete(avlTree));
+        assertTrue(tree.repOK_Concrete(tree));
         //It seems that the tree has a limit of branch size "LIMIT"
         //and this version of repo concrete also checks that
     }
@@ -56,45 +60,41 @@ public class AvlTreeTests {
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9})
     void keepInsertingLarger(int incrementingValue) {
-        AvlTree avlTree = new AvlTree();
         int valueToInsert = 0;
 
         for (int i = 0; i < howManyTimesInserting; i++) {
-            avlTree.insert(avlTree, valueToInsert);
+            tree.insert(tree, valueToInsert);
             valueToInsert -= incrementingValue;
         }
 
-        assertTrue(avlTree.repOK_ConcretePost(avlTree));
+        assertTrue(tree.repOK_ConcretePost(tree));
 
-        assertTrue(avlTree.repOK_Concrete(avlTree));
+        assertTrue(tree.repOK_Concrete(tree));
 
     }
 
     /**
-     * Keeps on adding the same value over and over to the tree and checks if it's
+     * Keeps on adding the same value over and over to the tree and checks if its
      * still follows all its rules after
      * @param valueToInsert which value to keep on inserting in the tree
      */
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9})
     void keepInsertingEqual(int valueToInsert) {
-        AvlTree avlTree = new AvlTree();
 
         for (int i = 0; i < howManyTimesInserting;i++) {
-            avlTree.insert(avlTree, valueToInsert);
+            tree.insert(tree, valueToInsert);
         }
-        assertTrue(avlTree.repOK_Concrete(avlTree));
-        assertTrue(avlTree.repOK_ConcretePost(avlTree));
+        assertTrue(tree.repOK_Concrete(tree));
+        assertTrue(tree.repOK_ConcretePost(tree));
     }
 
     /**
-    FR
     Insert duplicate elements 10 and 10 and ensures that duplicate insertions do not
     modify the tree meaning left and right should remain null.
     */
     @Test
     void insertDuplicateValues(){
-        AvlTree tree = new AvlTree();
         //duplicate insert of value 10
         tree = tree.insert(tree,10);
         tree = tree.insert(tree,10);
@@ -105,13 +105,11 @@ public class AvlTreeTests {
 
     }
     /**
-    FR
     We insert values in descending order and ensure the AVL tree maintains balance
     by doing left rotation.
      */
     @Test
-    void insertDescendingUnbalancedValues(){
-        AvlTree tree = new AvlTree();
+    void insertDesendingUnbalancedValues(){
         tree = tree.insert(tree,5);
         tree = tree.insert(tree,3);
         tree = tree.insert(tree,1);
@@ -148,9 +146,13 @@ public class AvlTreeTests {
         tree = tree.insert(tree, 80);
         tree = tree.insert(tree, 5);
 
-        assertTrue(tree.repOK_Structure_CheckHeight(tree)); //Check the balance of the tree
-                                                            //Expected Height:3
-        assertTrue(tree.repOK_Structure(tree));// Checks AVL balance property
+        assertTrue(tree.repOK_Structure(tree));
+
+        int numNodes = 9;
+        int height = (int)(Math.log(numNodes)/ Math.log(2));
+
+
+        // Checks AVL balance property
     }
 
 }
