@@ -146,10 +146,12 @@ public class AvlTreeTests {
         tree = tree.insert(tree, 80);
         tree = tree.insert(tree, 5);
 
+        assertTrue(tree.repOK_Structure_CheckHeight(tree)); //Check Balance of Tree
+                                                            //Expected balance: 3
+
         assertTrue(tree.repOK_Structure(tree));
 
-        int numNodes = 9;
-        int height = (int)(Math.log(numNodes)/ Math.log(2));
+
 
 
         // Checks AVL balance property
