@@ -10,7 +10,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.jupiter.api.Test;
-import java.util.Random;
+
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -152,6 +153,40 @@ public class AvlTreeTests {
         assertTrue(tree.repOK_Structure(tree));
         // Checks AVL balance property
     }
+
+
+   @Test
+   void testDoubleWithLeftChild() {
+        tree.insert(tree, 5);
+        tree.insert(tree, 3);
+       tree.insert(tree, 7);
+       tree.insert(tree, 1);
+       tree.insert(tree, 2);
+
+        List<Integer> avlTrees = new ArrayList<>();
+        avlTrees.add(tree.element);
+        avlTrees.add(tree.left.element);
+        avlTrees.add(tree.right.element);
+        avlTrees.add(tree.left.left.element);
+        avlTrees.add(tree.left.right.element);
+
+
+        //this is the htree with a double rotation that happened
+       ArrayList<Integer> checker = new ArrayList<Integer>() {
+           {
+               add(5);
+               add(2);
+               add(7);
+               add(1);
+               add(3);
+               add(5);
+           }
+       };
+        assertEquals(checker, avlTrees);
+
+
+   }
+
 
 }
 
